@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "start": "./node_modules/concurrently/dist/bin/concurrently.js \"npm run server\" \"npm run client\"",
         "server": "cd server && node server.js",
         "client": "cd client && npm start"
     },
