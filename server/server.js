@@ -80,10 +80,10 @@ const mysql = require('mysql');
 // });
 
 // connect to database
-conn.connect((err) => {
-    if (err) throw err;
-    console.log('Mysql Connected...');
-});
+// conn.connect((err) => {
+//     if (err) throw err;
+//     console.log('Mysql Connected...');
+//});
 
 // table must exist
 // new columns is not implemented
