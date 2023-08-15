@@ -86,6 +86,8 @@ const mysql = require('mysql');
 //     console.log('Mysql Connected...');
 // });
 
+app.get('/', (req, res) -> res.json({message: 'yyyyeeeessss'}))
+
 // table must exist
 // new columns is not implemented
 app.post('/store-data', (req, res) => {
@@ -108,7 +110,7 @@ app.post('/store-data', (req, res) => {
         .catch((error) => console.error(error));
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT||3001, () => {
     console.log("Server running successfully on http://localhost:3001");
     console.log("https://docs.google.com/spreadsheets/d/18yoGfF4T076LqO4kFGQStnwF1MaDSqKKvMZ36pJfnUA/edit#gid=0")
 });
