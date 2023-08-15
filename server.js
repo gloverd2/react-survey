@@ -11,7 +11,7 @@ app.use(
     }));
 
 app.use(express.json());
-// app.use(express.static(process.cwd()+"/client/build/"));
+app.use(express.static(process.cwd()+"/client/build/"));
 
 // google connection 
 const { google } = require('googleapis');
@@ -70,7 +70,7 @@ async function authorize() {
     return await authClient.getClient();
 }
 
-app.get('/', (req, res) => res.json({message: 'server is running'}))
+app.get('/test', (req, res) => res.json({message: 'server is running'}))
 
 // table must exist
 // new columns is not implemented
