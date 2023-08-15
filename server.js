@@ -86,7 +86,7 @@ const mysql = require('mysql');
 //     console.log('Mysql Connected...');
 // });
 
-app.get('/', (req, res) -> res.json({message: 'yyyyeeeessss'}))
+app.get('/', (req, res) => res.json({message: 'yyyyeeeessss'}))
 
 // table must exist
 // new columns is not implemented
