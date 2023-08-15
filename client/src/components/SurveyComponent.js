@@ -4,8 +4,6 @@ import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import axios from 'axios';
 
-const port = process.env.PORT || 8080;
-
 const SurveyComponent = () => {
   const surveyJSON = {
     title: 'Person Information Survey',
@@ -48,7 +46,7 @@ const SurveyComponent = () => {
         meta: {tbl: 'users'}
       };
       
-      const response = await axios.post(`http://localhost:${port}/store-data`, surveyData);
+      const response = await axios.post(`https://react-survey.azurewebsites.net/store-data`, surveyData);
       console.log(response.data.message);
     } catch (error) {
       console.error('Error submitting survey:', error);
