@@ -46,7 +46,7 @@ const SurveyComponent = () => {
         meta: {tbl: 'users'}
       };
       
-      const response = await axios.post('http://localhost:8080/store-data', surveyData);
+      const response = await axios.post('http://localhost:${port}/store-data', surveyData);
       console.log(response.data.message);
     } catch (error) {
       console.error('Error submitting survey:', error);
