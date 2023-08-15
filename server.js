@@ -5,7 +5,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: 'http://localhost:3000',
+        origin: 'http://localhost:8080',
         credentials: true,
     }));
 
@@ -110,7 +110,7 @@ app.post('/store-data', (req, res) => {
         .catch((error) => console.error(error));
 });
 
-app.listen(process.env.PORT||3001, () => {
-    console.log("Server running successfully on http://localhost:3001");
+app.listen(8080, () => {
+    console.log("Server running successfully on http://localhost:8080");
     console.log("https://docs.google.com/spreadsheets/d/18yoGfF4T076LqO4kFGQStnwF1MaDSqKKvMZ36pJfnUA/edit#gid=0")
 });
