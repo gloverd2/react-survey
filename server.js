@@ -2,10 +2,11 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const app = express();
+const port = 8080;
 
 app.use(
     cors({
-        origin: 'http://localhost:8080',
+        origin: 'http://localhost:${port}',
         credentials: true,
     }));
 
@@ -69,24 +70,7 @@ async function authorize() {
     return await authClient.getClient();
 }
 
-// sql connection
-const mysql = require('mysql');
-
-//create database connection
-// const conn = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'password',
-//     database: 'db1'
-// });
-
-// connect to database
-// conn.connect((err) => {
-//     if (err) throw err;
-//     console.log('Mysql Connected...');
-// });
-
-app.get('/', (req, res) => res.json({message: 'yyyyeeeessss'}))
+app.get('/test', (req, res) => res.json({message: 'yyyyeeeessss'}))
 
 // table must exist
 // new columns is not implemented
@@ -99,18 +83,12 @@ app.post('/store-data', (req, res) => {
     const keys = Object.keys(req.body.data);
     console.log("keys: " +keys)
 
-    // let sql = "INSERT INTO " + req.body.meta.tbl + " SET ?";
-    // let query = conn.query(sql, req.body.data,(err, results) => {
-    //    if(err) throw err;
-    //    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
-    // });
-
     initializeSheet(req.body.meta.tbl,keys)
         .then(() => appendData(req.body.meta.tbl, valuesArray))
         .catch((error) => console.error(error));
 });
 
-app.listen(8080, () => {
-    console.log("Server running successfully on http://localhost:8080");
+app.listen(port, () => {
+    console.log("Server running successfully on http://localhost:${port}");
     console.log("https://docs.google.com/spreadsheets/d/18yoGfF4T076LqO4kFGQStnwF1MaDSqKKvMZ36pJfnUA/edit#gid=0")
 });
