@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use(
     cors({
@@ -11,7 +11,7 @@ app.use(
     }));
 
 app.use(express.json());
-app.use(express.static(process.cwd()+"/client/build/"));
+// app.use(express.static(process.cwd()+"/client/build/"));
 
 // google connection 
 const { google } = require('googleapis');
@@ -70,7 +70,7 @@ async function authorize() {
     return await authClient.getClient();
 }
 
-app.get('/test', (req, res) => res.json({message: 'yyyyeeeessss'}))
+app.get('/', (req, res) => res.json({message: 'server is running'}))
 
 // table must exist
 // new columns is not implemented
