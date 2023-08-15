@@ -4,6 +4,8 @@ import * as Survey from 'survey-react';
 import 'survey-react/survey.css';
 import axios from 'axios';
 
+const port = process.env.PORT || 8080;
+
 const SurveyComponent = () => {
   const surveyJSON = {
     title: 'Person Information Survey',
