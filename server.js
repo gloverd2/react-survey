@@ -10,6 +10,7 @@ app.use(
     }));
 
 app.use(express.json());
+app.use(express.static(process.cwd()+"/client/build/"));
 
 // google connection 
 const { google } = require('googleapis');
@@ -83,7 +84,7 @@ const mysql = require('mysql');
 // conn.connect((err) => {
 //     if (err) throw err;
 //     console.log('Mysql Connected...');
-//});
+// });
 
 // table must exist
 // new columns is not implemented
